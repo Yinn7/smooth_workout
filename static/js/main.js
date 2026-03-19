@@ -266,12 +266,6 @@ function cardioPrev() {
 
 function cardioNext() {
   if (!window._cardioResults) return;
-  const idx = window._cardioResults.findIndex(r => r.videoId === window._cardioCurrentId);
-  if (idx < window._cardioResults.length - 1) playCardio(window._cardioResults[idx + 1]);
-}
-
-function cardioNext() {
-  if (!window._cardioResults) return;
   const current = window._cardioResults.findIndex(r => r.videoId === window._cardioCurrentId);
   const next = current + 1;
   if (next < window._cardioResults.length) playCardio(window._cardioResults[next]);
