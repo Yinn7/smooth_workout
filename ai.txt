@@ -1,0 +1,11 @@
+I used Claude to ask with the following parts of this project:
+What types of file should built to create an interactive html website?
+How do I add a search bar with a submit button in HTML?
+How to trigger a search function when the user presses the Enter key in an input field?
+How do I show and hide different sections on a page when a button is clicked?
+How to check the issue of the website?
+My YT.Player object is not working and there are no error messages in the console. What could cause failure?
+
+I used ChatGPT to ask with the following parts of this project:
+How do I create a progress bar that updates as a video plays?
+How do I pause a YouTube player when the user clicks a different tab?
