@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smooth Workout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="logo">
+        <div class="logo-icon">⚡</div>
+        <h1>SMOOTH WORKOUT</h1>
+      </div>
+      <div class="mode-toggle">
+        <button id="btn-lift" class="mode-btn active" onclick="setMode('lift')">
+          🎵 <span>Lift</span>
+        </button>
+        <button id="btn-cardio" class="mode-btn" onclick="setMode('cardio')">
+          📺 <span>Cardio</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="search-bar">
+      <div class="search-row">
+        <input type="text" id="search-input" placeholder="Search music..." autocomplete="off"/>
+        <button id="search-btn" onclick="triggerSearch()">SEARCH</button>
+      </div>
+      <span class="search-hint" id="search-hint"></span>
+    </div>
+
+    <!-- Lift Mode player -->
+    <div id="lift-player" class="player-container">
+
+      <!-- Idle state -->
+      <div id="lift-idle" class="lift-idle">
+        <span>🎵</span>
+        <p>Search for music to start lifting</p>
+      </div>
+
+      <!-- Now playing -->
+      <div id="lift-now-playing" class="lift-now-playing hidden">
+        <div class="lift-top">
+          <div class="lift-album-art" id="lift-album-art"></div>
+          <div class="lift-info">
+            <div class="lift-title" id="lift-title">—</div>
+            <div class="lift-channel" id="lift-channel">—</div>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress-wrap">
+          <span class="time" id="time-current">0:00</span>
+          <div class="progress-bar" id="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <span class="time" id="time-total">0:00</span>
+        </div>
+
+        <!-- Controls -->
+        <div class="lift-controls">
+          <button class="ctrl-btn" onclick="playPrev()" title="Previous">⏮</button>
+          <button class="ctrl-btn play-btn-main" id="play-pause-btn" onclick="togglePlayPause()">⏸</button>
+          <button class="ctrl-btn" onclick="playNext()" title="Next">⏭</button>
+        </div>
+      </div>
+
+      <!-- hidden audio-only iframe -->
+      <div id="lift-yt-player" style="display:none;width:1px;height:1px;overflow:hidden"></div>
+    </div>
+
+    <!-- Cardio Mode player -->
+  <div id="cardio-player" class="player-container hidden">
+    <div id="yt-player"></div>
+    <div id="now-playing-yt"></div>
+    <div class="lift-controls" id="cardio-controls" style="padding: 12px 0 16px;">
+      <button class="ctrl-btn" onclick="cardioPrev()">⏮</button>
+      <button class="ctrl-btn play-btn-main" id="cardio-play-pause-btn" onclick="toggleCardioPlayPause()">⏸</button>
+      <button class="ctrl-btn" onclick="cardioNext()">⏭</button>
+    </div>
+  </div>
+
+    <!-- Results -->
+    <div id="results-grid" class="results-grid hidden"></div>
+  </div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>const SPOTIFY_LOGGED_IN = false;</script>
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
